@@ -1,0 +1,6 @@
+name: custom_module 
+type: module
+discription: custom_module
+core_version_requirement: ^11
+package: custom
+ 
