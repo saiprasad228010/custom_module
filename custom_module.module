@@ -1,0 +1,29 @@
+<?php
+function custom_module_node_presave(\Drupal\node\NodeInterface $node) {
+    //Check if the node is of a certain type (optional)
+    if ($node->bundle() == 'article') {
+      // Example: Set a custom field value before saving
+      // (Assume we have a field named 'field_custom_text')
+      
+      if ($node->hasField('field_custom_text')) {
+        $node->set('field_custom_text', 'This is a custom value set in hook_node_presave.');
+      }
+    }
+  
+    // You can perform other actions here, like logging or altering other fields
+  
+  if ($node->getType() == 'page') {
+    // Append the keyword to the title 
+    $node->setTitle($node->getTitle() . ' TODAY WORK');
+    //dd($node->getTitle() );
+  }
+  d('This is a custom message edited');
+ \Drupal::messenger()->addMessage('This is a custom message');
+}
+
+// function custom_module_node_insert(\Drupal\node\NodeInterface $node){
+//   if ($node->type == 'article') {
+
+//   d('node inserted sucessfully');
+//   }
+//}
