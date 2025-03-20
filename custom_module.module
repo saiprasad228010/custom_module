@@ -9,9 +9,24 @@
 //  \Drupal::messenger()->addMessage('This is a custom message');
 // }
 
-function custom_module_node_insert(\Drupal\node\NodeInterface $node){
-  if ($node->getType() == 'article') {
-   d('node inserted sucessfully');
-  }
-  //d('node inserted sucessfully');
-}
+// function custom_module_node_insert(\Drupal\node\NodeInterface $node){
+//   if ($node->getType() == 'article') {
+//    d('node inserted sucessfully');
+//   }
+// }
+//   //d('node inserted sucessfully');
+  function custom_module_form_alter(&$form, &$form_state, $form_id){
+    $form['message']['#title'] = \Drupal::translation()->translate('New Label for Custom Field');
+
+    //if ($form_id == 'search-block-form') {
+          //d($form);
+    //  if (isset($form['Message'])){
+    //     // Change the title of the field.
+    //     $form['Message']['#title'] = t('New Title for the Field');
+    //     d($form['title']);
+    //   }
+    //}
+
+    //  dd($form['title']);
+    }
+
